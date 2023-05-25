@@ -33,6 +33,9 @@ export function Book() {
           <div>
             <p><b>Pages:</b> {book.pages}</p>
           </div>
+          <div>
+          {new Intl.DateTimeFormat("pt-BR").format(new Date(book.createdAt))}
+          </div>
           <button className="removeBtn" onClick={removeBook}>
             Remove book
           </button>

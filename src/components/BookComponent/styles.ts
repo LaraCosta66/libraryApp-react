@@ -3,7 +3,7 @@ import { darken, transparentize } from "polished";
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1.25rem;
+  gap: 1rem;
 
   .containerBook {
     width: 350px;

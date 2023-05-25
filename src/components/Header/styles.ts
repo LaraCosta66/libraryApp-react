@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
   background-color: #64748b;
+  img{
+    width: 40px;
+    height: 40px;
+}
+.contact{
+  width: 200px;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
 `;
 export const Content = styled.div`
   width: 100%;
