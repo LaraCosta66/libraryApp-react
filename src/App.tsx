@@ -4,8 +4,10 @@ import { GlobalStyle } from "./styles/global";
 import { BookModal } from "./components/BookModal";
 import Modal from "react-modal";
 import { Bookshelf } from "./components/Bookshelf";
+import {BooksProvider} from "./hooks/useBooks";
 
 Modal.setAppElement("#root");
+
 export function App() {
   const [isBookModalOpen, setIsbookModalOpen] = useState(false);
 
@@ -16,12 +18,12 @@ export function App() {
     setIsbookModalOpen(false);
   }
   return (
-    <>
-    <Header onOpenBookModal={handleOpenBookModal} />
-    <BookModal isOpen={isBookModalOpen} onRequestClose={handleCloseBookModal}/>
-    <Bookshelf />
-    <GlobalStyle/>
-    </>
+    <BooksProvider>
+      <Header onOpenBookModal={handleOpenBookModal} />
+      <BookModal isOpen={isBookModalOpen} onRequestClose={handleCloseBookModal}/>
+      <Bookshelf />
+      <GlobalStyle/>
+    </BooksProvider>
   );
 }
 

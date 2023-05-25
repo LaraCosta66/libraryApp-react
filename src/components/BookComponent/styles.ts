@@ -6,6 +6,7 @@ width: 350px;
 height: auto;
 padding: 20px;
 border-radius: 10px;
+border: 1px solid black;
 
 
 .removeBtn{

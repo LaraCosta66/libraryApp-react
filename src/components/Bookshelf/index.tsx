@@ -2,14 +2,6 @@ import { CreateBook } from '../BookComponent'
 import {Container} from './styles'
 
 
-const myLibrary = [
-    {
-      title: "The Seven Husbands of Evelyn Hugo",
-      author: "Taylor Jenkins Reid",
-      pages: 354,
-      read: true,
-    },
-  ];
 export function Bookshelf() {
 
     return(

@@ -2,7 +2,7 @@ import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
 import { Container, ContentBox, ReadboxContainer } from "./styles";
 import { FormEvent, useState } from "react";
-import { CreateBook } from "../BookComponent";
+import { useBooks } from "../../hooks/useBooks";
 
 interface BookModalProps {
   isOpen: boolean;
@@ -10,26 +10,26 @@ interface BookModalProps {
 }
 
 export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
-  const {createBook} = CreateBook();
+  const { createNewBook } = useBooks();
   const [title, setTitle] = useState("");
   const [pages, setPages] = useState(0);
   const [author, setAuthor] = useState("");
   const [type, setType] = useState("read");
-
-   function handleCreateNewBook(event: FormEvent) {
+  async function handleCreateNewBook(event: FormEvent) {
     event.preventDefault();
-    createBook({
+    await createNewBook({
       title,
       pages,
       author,
       type,
-    })
-    setTitle('');
+    });
+    setTitle("");
     setPages(0);
-    setAuthor('');
-    setType('read');
+    setAuthor("");
+    setType("read");
     onRequestClose();
   }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -50,44 +50,47 @@ export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
           type="text"
           placeholder="Title"
           value={title}
-          onChange={event => setTitle(event.target.value)}
+          onChange={(event) => setTitle(event.target.value)}
         />
         <input
           type="text"
           placeholder="Author"
           value={author}
-          onChange={event => setAuthor(event.target.value)}
+          onChange={(event) => setAuthor(event.target.value)}
         />
         <input
           type="number"
           placeholder="pages"
           value={pages}
-          onChange={event => setPages(Number(event.target.value))}
+          onChange={(event) => setPages(Number(event.target.value))}
         />
         <ReadboxContainer>
-        <ContentBox  type="button"
-            isActive={ type === "read"}
+          <ContentBox
+            type="button"
+            isActive={type === "read"}
             activeColor="green"
             onClick={() => {
               setType("read");
             }}
-            >
+          >
             <span>Read</span>
-            </ContentBox>
+          </ContentBox>
 
-        <ContentBox type="button"
+          <ContentBox
+            type="button"
             isActive={type === "unread"}
             activeColor="red"
             onClick={() => {
               setType("unread");
             }}
-            >
+          >
             <span>Unread</span>
-            </ContentBox>
+          </ContentBox>
         </ReadboxContainer>
-        <button type="submit" onClick={()=> console.log("clicou")}>Add book to library</button>
+        <button type="submit" >
+          Add book to library
+        </button>
       </Container>
     </Modal>
   );
-
 }
