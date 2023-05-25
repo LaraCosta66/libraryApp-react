@@ -14,7 +14,7 @@ export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
   const [title, setTitle] = useState("");
   const [pages, setPages] = useState(0);
   const [author, setAuthor] = useState("");
-  const [type, setType] = useState("read");
+  const [type, setType] = useState("Read");
   async function handleCreateNewBook(event: FormEvent) {
     event.preventDefault();
     await createNewBook({
@@ -26,7 +26,7 @@ export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
     setTitle("");
     setPages(0);
     setAuthor("");
-    setType("read");
+    setType("Read");
     onRequestClose();
   }
 
@@ -67,10 +67,10 @@ export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
         <ReadboxContainer>
           <ContentBox
             type="button"
-            isActive={type === "read"}
+            isActive={type === "Read"}
             activeColor="green"
             onClick={() => {
-              setType("read");
+              setType("Read");
             }}
           >
             <span>Read</span>
@@ -78,10 +78,10 @@ export function BookModal({ isOpen, onRequestClose }: BookModalProps) {
 
           <ContentBox
             type="button"
-            isActive={type === "unread"}
+            isActive={type === "Unread"}
             activeColor="red"
             onClick={() => {
-              setType("unread");
+              setType("Unread");
             }}
           >
             <span>Unread</span>

@@ -15,17 +15,17 @@ createServer({
                 title: "The Seven Husbands of Evelyn Hugo",
                 author: "Taylor Jenkins Reid",
                 pages: 354,
-                type: 'read',
+                type: "Read",
                 createdAt: new Date("2023-04-22"),
               },
-              // {
-              //   id:2,
-              //   title: "Normal People",
-              //   author: "Sally Rooney",
-              //   pages: 263,
-              //   type: "unread",
-              //   createdAt: new Date("2023-03-01")
-              // },
+              {
+                id:2,
+                title: "Normal People",
+                author: "Sally Rooney",
+                pages: 263,
+                type: "Unread",
+                createdAt: new Date("2023-03-01")
+              },
       ]
     });
   },
